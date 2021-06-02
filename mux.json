@@ -1,0 +1,394 @@
+
+// Instruções da máquina de turing
+[
+  // Rotina de Inicialização com Toggle
+
+   //q0
+   [
+      //read 0
+      {"write": "X","direction": "R","next_state": 3},
+      //read 1
+      {"write": 0,"direction": "R","next_state": 1},
+      //read W
+      {"write": 0,"direction": "R","next_state": 20},
+      //read X
+      {"write": 0,"direction": "R","next_state": 20},
+      //read Y
+      {"write": 0,"direction": "R","next_state": 20},
+      //read S
+      {"write": 0,"direction": "R","next_state": 20},
+      //read #
+      {"write": 0,"direction": "R","next_state": 20},
+      //read e (vazio)
+      {"write": "e","direction": "R","next_state": 0}
+   ],
+   //q1
+   [
+      //read 0
+      {"write": 1,"direction": "R","next_state": 1},
+      //read 1
+      {"write": 0,"direction": "R","next_state": 1},
+      //read W
+      {"write": "e","direction": "R","next_state": 20},
+      //read X
+      {"write": "e","direction": "R","next_state": 20},
+      //read Y
+      {"write": "e","direction": "R","next_state": 20},
+      //read S
+      {"write": "e","direction": "R","next_state": 20},
+      //read #
+      {"write": "e","direction": "R","next_state": 20},
+      //read e (vazio)
+      {"write": "e","direction": "L","next_state": 2}
+   ],
+   //q2
+   [
+      //read 0
+      {"write": 0,"direction": "L","next_state": 2},
+      //read 1
+      {"write": 1,"direction": "L","next_state": 2},
+      //read W
+      {"write": "e","direction": "R","next_state": 20},
+      //read X
+      {"write": "e","direction": "R","next_state": 20},
+      //read Y
+      {"write": "e","direction": "R","next_state": 20},
+      //read S
+      {"write": "e","direction": "R","next_state": 20},
+      //read #
+      {"write": "e","direction": "R","next_state": 20},
+      //read e (vazio)
+      {"write": "e","direction": "R","next_state": 0}
+   ],
+   //q3
+   [
+      //read 0
+      {"write": "X","direction": "R","next_state": 3},
+      //read 1
+      {"write": "#","direction": "R","next_state": 4},
+      //read W
+      {"write": "e","direction": "R","next_state": 20},
+      //read X
+      {"write": "e","direction": "R","next_state": 20},
+      //read Y
+      {"write": "e","direction": "R","next_state": 20},
+      //read S
+      {"write": "e","direction": "R","next_state": 20},
+      //read #
+      {"write": "e","direction": "R","next_state": 20},
+      //read e (vazio)
+      {"write": "e","direction": "R","next_state": 20}
+   ],
+   //q4
+   [
+      //read 0
+      {"write": 0,"direction": "R","next_state": 4},
+      //read 1
+      {"write": 1,"direction": "R","next_state": 4},
+      //read W
+      {"write": "W","direction": "R","next_state": 4},
+      //read X
+      {"write": "X","direction": "R","next_state": 4},
+      //read Y
+      {"write": "e","direction": "R","next_state": 20},
+      //read S
+      {"write": "S","direction": "R","next_state": 4},
+      //read #
+      {"write": "#","direction": "R","next_state": 4},
+      //read e (vazio)
+      {"write": "W","direction": "L","next_state": 5}
+   ],
+   //q5
+   [
+      //read 0
+      {"write": 0,"direction": "L","next_state": 5},
+      //read 1
+      {"write": 1,"direction": "L","next_state": 5},
+      //read W
+      {"write": "W","direction": "L","next_state": 5},
+      //read X
+      {"write": "X","direction": "L","next_state": 5},
+      //read Y
+      {"write": "Y","direction": "R","next_state": 6},
+      //read S
+      {"write": "S","direction": "L","next_state": 5},
+      //read #
+      {"write": "#","direction": "L","next_state": 5},
+      //read e (vazio)
+      {"write": "e","direction": "R","next_state": 6}
+   ],
+   //q6
+   [
+      //read 0
+      {"write": "e","direction": "R","next_state": 20},
+      //read 1
+      {"write": "e","direction": "R","next_state": 20},
+      //read W
+      {"write": "e","direction": "R","next_state": 20},
+      //read X
+      {"write": "Y","direction": "R","next_state": 7},
+      //read Y
+      {"write": "e","direction": "R","next_state": 20},
+      //read S
+      {"write": "e","direction": "R","next_state": 20},
+      //read #
+      {"write": "e","direction": "R","next_state": 20},
+      //read e (vazio)
+      {"write": "e","direction": "R","next_state": 20}
+   ],
+   //q7
+   [
+      //read 0
+      {"write": "e","direction": "L","next_state": 20},
+      //read 1
+      {"write": "e","direction": "L","next_state": 20},
+      //read W
+      {"write": "e","direction": "R","next_state": 20},
+      //read X
+      {"write": "X","direction": "R","next_state": 4},
+      //read Y
+      {"write": "e","direction": "R","next_state": 20},
+      //read S
+      {"write": "S","direction": "L","next_state": 8},
+      //read #
+      {"write": "#","direction": "L","next_state": 8},
+      //read e (vazio)
+      {"write": "e","direction": "R","next_state": 20}
+   ],
+   //q8
+   [
+      //read 0
+      {"write": "e","direction": "L","next_state": 20},
+      //read 1
+      {"write": "e","direction": "L","next_state": 20},
+      //read W
+      {"write": "e","direction": "R","next_state": 20},
+      //read X
+      {"write": "e","direction": "R","next_state": 20},
+      //read Y
+      {"write": "Y","direction": "L","next_state": 8},
+      //read S
+      {"write": "e","direction": "R","next_state": 20},
+      //read #
+      {"write": "e","direction": "R","next_state": 20},
+      //read e (vazio)
+      {"write": "e","direction": "R","next_state": 9}
+   ],
+   //q9
+   [
+      //read 0
+      {"write": "e","direction": "L","next_state": 20},
+      //read 1
+      {"write": "e","direction": "L","next_state": 20},
+      //read W
+      {"write": "e","direction": "R","next_state": 20},
+      //read X
+      {"write": "e","direction": "R","next_state": 20},
+      //read Y
+      {"write": "X","direction": "R","next_state": 9},
+      //read S
+      {"write": "S","direction": "R","next_state": 9},
+      //read #
+      {"write": "S","direction": "R","next_state": 10},
+      //read e (vazio)
+      {"write": "e","direction": "R","next_state": 20}
+   ],
+   //q10
+   [
+      //read 0
+      {"write": 1,"direction": "R","next_state": 11},
+      //read 1
+      {"write": "#","direction": "R","next_state": 4},
+      //read W
+      {"write": "W","direction": "L","next_state": 11},
+      //read X
+      {"write": "e","direction": "R","next_state": 20},
+      //read Y
+      {"write": "e","direction": "R","next_state": 20},
+      //read S
+      {"write": "e","direction": "R","next_state": 20},
+      //read #
+      {"write": "e","direction": "R","next_state": 20},
+      //read e (vazio)
+      {"write": "e","direction": "R","next_state": 20}
+   ],
+   //q11
+   [
+      //read 0
+      {"write": 1,"direction": "R","next_state": 11},
+      //read 1
+      {"write": 0,"direction": "R","next_state": 11},
+      //read W
+      {"write": "W","direction": "L","next_state": 12},
+      //read X
+      {"write": "e","direction": "R","next_state": 20},
+      //read Y
+      {"write": "e","direction": "R","next_state": 20},
+      //read S
+      {"write": "S","direction": "L","next_state": 12},
+      //read #
+      {"write": "e","direction": "R","next_state": 20},
+      //read e (vazio)
+      {"write": "e","direction": "L","next_state": 12}
+   ],
+   //q12
+   [
+      //read 0
+      {"write": 0,"direction": "L","next_state": 12},
+      //read 1
+      {"write": 1,"direction": "L","next_state": 12},
+      //read W
+      {"write": "e","direction": "R","next_state": 20},
+      //read X
+      {"write": "X","direction": "L","next_state": 12},
+      //read Y
+      {"write": "e","direction": "R","next_state": 20},
+      //read S
+      {"write": "S","direction": "L","next_state": 12},
+      //read #
+      {"write": "e","direction": "R","next_state": 20},
+      //read e (vazio)
+      {"write": "e","direction": "R","next_state": 13}
+   ],
+   //q13
+   [
+      //read 0
+      {"write": "e","direction": "R","next_state": 14},
+      //read 1
+      {"write": "e","direction": "R","next_state": 15},
+      //read W
+      {"write": "X","direction": "R","next_state": 17},
+      //read X
+      {"write": "e","direction": "R","next_state": 13},
+      //read Y
+      {"write": "e","direction": "R","next_state": 20},
+      //read S
+      {"write": "e","direction": "R","next_state": 13},
+      //read #
+      {"write": "e","direction": "R","next_state": 20},
+      //read e (vazio)
+      {"write": "e","direction": "R","next_state": 20}
+   ],
+   //q14
+   [
+      //read 0
+      {"write": 0,"direction": "R","next_state": 14},
+      //read 1
+      {"write": 1,"direction": "R","next_state": 14},
+      //read W
+      {"write": "W","direction": "R","next_state": 14},
+      //read X
+      {"write": "e","direction": "R","next_state": 20},
+      //read Y
+      {"write": "e","direction": "R","next_state": 20},
+      //read S
+      {"write": "e","direction": "R","next_state": 20},
+      //read #
+      {"write": "e","direction": "R","next_state": 20},
+      //read e (vazio)
+      {"write": 0,"direction": "L","next_state": 16}
+   ],
+   //q15
+   [
+      //read 0
+      {"write": 0,"direction": "R","next_state": 15},
+      //read 1
+      {"write": 1,"direction": "R","next_state": 15},
+      //read W
+      {"write": "W","direction": "R","next_state": 15},
+      //read X
+      {"write": "e","direction": "R","next_state": 20},
+      //read Y
+      {"write": "e","direction": "R","next_state": 20},
+      //read S
+      {"write": "e","direction": "R","next_state": 20},
+      //read #
+      {"write": "e","direction": "R","next_state": 20},
+      //read e (vazio)
+      {"write": 1,"direction": "L","next_state": 16}
+   ],
+   //q16
+   [
+      //read 0
+      {"write": 0,"direction": "L","next_state": 16},
+      //read 1
+      {"write": 1,"direction": "L","next_state": 16},
+      //read W
+      {"write": "W","direction": "L","next_state": 16},
+      //read X
+      {"write": "e","direction": "R","next_state": 20},
+      //read Y
+      {"write": "e","direction": "R","next_state": 20},
+      //read S
+      {"write": "e","direction": "R","next_state": 20},
+      //read #
+      {"write": "e","direction": "R","next_state": 20},
+      //read e (vazio)
+      {"write": "e","direction": "R","next_state": 13}
+   ],
+   //q17
+   [
+      //read 0
+      {"write": 0,"direction": "L","next_state": 18},
+      //read 1
+      {"write": 1,"direction": "L","next_state": 18},
+      //read W
+      {"write": "X","direction": "R","next_state": 17},
+      //read X
+      {"write": "e","direction": "R","next_state": 20},
+      //read Y
+      {"write": "e","direction": "R","next_state": 20},
+      //read S
+      {"write": "e","direction": "R","next_state": 20},
+      //read #
+      {"write": "e","direction": "R","next_state": 20},
+      //read e (vazio)
+      {"write": "e","direction": "L","next_state": 18}
+   ],
+   //q18
+   [
+      //read 0
+      {"write": "e","direction": "L","next_state": 20},
+      //read 1
+      {"write": "#","direction": "R","next_state": 4},
+      //read W
+      {"write": "e","direction": "R","next_state": 20},
+      //read X
+      {"write": "X","direction": "R","next_state": 18},
+      //read Y
+      {"write": "Y","direction": "L","next_state": 19},
+      //read S
+      {"write": "S","direction": "L","next_state": 19},
+      //read #
+      {"write": "e","direction": "R","next_state": 20},
+      //read e (vazio)
+      {"write": "e","direction": "L","next_state": 19}
+   ],
+   //q19
+   [
+      //read 0
+      {"write": "e","direction": "L","next_state": 2},
+      //read 1
+      {"write": "e","direction": "L","next_state": 2},
+      //read W
+      {"write": "e","direction": "R","next_state": 20},
+      //read X
+      {"write": 0,"direction": "L","next_state": 19},
+      //read Y
+      {"write": "e","direction": "R","next_state": 20},
+      //read S
+      {"write": "e","direction": "R","next_state": 20},
+      //read #
+      {"write": "e","direction": "R","next_state": 20},
+      //read e (vazio)
+      {"write": "e","direction": "R","next_state": 21}
+   ],
+   //q20
+   [
+      // Estado de rejeição
+   ],
+   //q21
+   [
+    // Estado de aceitação
+   ]
+]
